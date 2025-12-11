@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/images/logo-purple.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHIPLY - Next Gen Logistics</title>
+  <meta name="description"
+    content="Seamless Shipping, Delivered. SHIPLY provides luxury logistics services, real-time tracking, and digital supply chain solutions." />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="antialiased selection:bg-purple-500 selection:text-white">
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 border-b border-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-24">
+        <!-- Logo -->
+        <div class="flex-shrink-0 flex items-center">
+          <a href="#" class="flex items-center gap-3 group">
+            <div class="relative">
+              <div
+                class="absolute inset-0 bg-purple-600 blur-md opacity-20 group-hover:opacity-40 transition-opacity rounded-full">
+              </div>
+              <img class="relative h-14 w-auto transition-transform duration-300 group-hover:scale-110"
+                src="/images/logo-purple.png" alt="SHIPLY Logo">
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-1" id="desktop-menu">
+          <a href="#home"
+            class="px-5 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all"
+            data-i18n="nav.home">HOME</a>
+          <a href="#platform"
+            class="px-5 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all"
+            data-i18n="nav.platform">PLATFORM</a>
+          <a href="#services"
+            class="px-5 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all"
+            data-i18n="nav.services">SERVICES</a>
+          <a href="#about"
+            class="px-5 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all"
+            data-i18n="nav.about">ABOUT</a>
+          <a href="#contact"
+            class="px-5 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all"
+            data-i18n="nav.contact">CONTACT</a>
+        </div>
+
+        <!-- Right Side: CTA -->
+        <div class="hidden md:flex items-center gap-4">
+          <div class="h-6 w-px bg-white/10 mx-2"></div>
+          <!-- Language Toggle -->
+          <button class="text-gray-400 hover:text-white font-medium text-sm transition-colors flex items-center gap-1"
+            id="lang-toggle-btn">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+            <span id="current-lang">EN</span>
+          </button>
+
+          <a href="#contact" class="btn-primary flex items-center gap-2" data-i18n="nav.cta">
+            Get Started
+            <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center gap-4">
+          <button id="mobile-menu-btn" class="text-white hover:text-purple-400 focus:outline-none p-2">
+            <i data-lucide="menu" class="w-8 h-8"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay"
+      class="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm hidden transition-opacity opacity-0"></div>
+
+    <!-- Mobile Menu Sidebar -->
+    <div id="mobile-menu"
+      class="fixed top-0 end-0 w-[80%] max-w-sm h-full bg-[#0a051e] border-s border-white/10 shadow-2xl z-50 transform translate-x-full rtl:-translate-x-full transition-transform duration-300 flex flex-col">
+
+      <div class="flex justify-between items-center p-6 border-b border-white/10">
+        <span class="text-xl font-bold font-outfit text-white" data-i18n="nav.menu">Menu</span>
+        <button id="mobile-menu-close" class="text-gray-400 hover:text-white">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto py-8 px-6 space-y-2">
+        <a href="#home"
+          class="block px-4 py-3 rounded-xl text-lg text-gray-300 hover:bg-white/5 hover:text-white transition-all flex items-center gap-3"
+          data-i18n="nav.home">
+          <i data-lucide="home" class="w-5 h-5 text-purple-500"></i> HOME
+        </a>
+        <a href="#platform"
+          class="block px-4 py-3 rounded-xl text-lg text-gray-300 hover:bg-white/5 hover:text-white transition-all flex items-center gap-3"
+          data-i18n="nav.platform">
+          <i data-lucide="smartphone" class="w-5 h-5 text-purple-500"></i> PLATFORM
+        </a>
+        <a href="#services"
+          class="block px-4 py-3 rounded-xl text-lg text-gray-300 hover:bg-white/5 hover:text-white transition-all flex items-center gap-3"
+          data-i18n="nav.services">
+          <i data-lucide="layers" class="w-5 h-5 text-purple-500"></i> SERVICES
+        </a>
+        <a href="#about"
+          class="block px-4 py-3 rounded-xl text-lg text-gray-300 hover:bg-white/5 hover:text-white transition-all flex items-center gap-3"
+          data-i18n="nav.about">
+          <i data-lucide="info" class="w-5 h-5 text-purple-500"></i> ABOUT
+        </a>
+        <a href="#contact"
+          class="block px-4 py-3 rounded-xl text-lg text-gray-300 hover:bg-white/5 hover:text-white transition-all flex items-center gap-3"
+          data-i18n="nav.contact">
+          <i data-lucide="mail" class="w-5 h-5 text-purple-500"></i> CONTACT
+        </a>
+
+        <div class="h-px bg-white/10 my-4"></div>
+
+        <div class="space-y-4">
+          <p class="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Languages</p>
+          <div class="grid grid-cols-3 gap-2 px-4">
+            <button onclick="setLanguage('en')"
+              class="py-2 rounded-lg bg-white/5 hover:bg-purple-600/20 text-sm text-gray-300 hover:text-white border border-white/5 transition-all">English</button>
+            <button onclick="setLanguage('ar')"
+              class="py-2 rounded-lg bg-white/5 hover:bg-purple-600/20 text-sm text-gray-300 hover:text-white border border-white/5 transition-all font-arabic">العربية</button>
+            <button onclick="setLanguage('ku')"
+              class="py-2 rounded-lg bg-white/5 hover:bg-purple-600/20 text-sm text-gray-300 hover:text-white border border-white/5 transition-all font-arabic">کوردی</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 border-t border-white/10 bg-black/20">
+        <a href="#contact" class="w-full btn-primary flex justify-center items-center gap-2" data-i18n="nav.cta">
+          Get Started
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+
+    <!-- Background Elements -->
+    <div class="absolute inset-0 z-0">
+      <div
+        class="absolute top-0 right-[-10%] w-[50vw] h-[50vw] bg-purple-600/20 rounded-full blur-[120px] animate-pulse">
+      </div>
+      <div class="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-indigo-600/10 rounded-full blur-[120px]">
+      </div>
+      <div class="absolute inset-0 bg-[url('/images/grid-pattern.png')] opacity-[0.03]"></div>
+      <div class="absolute inset-0"
+        style="background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.2">
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- LEFT: Content -->
+        <div class="flex flex-col items-start text-start pt-10 lg:pt-0">
+          <div class="animate-fade-in-up" style="animation-delay: 0.1s;">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8">
+              <span class="relative flex h-2 w-2">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+              </span>
+              <span class="text-xs font-medium text-purple-200 tracking-wide uppercase" data-i18n="hero.badge">Your
+                express bridge to the world</span>
+            </div>
+          </div>
+
+          <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1] animate-fade-in-up"
+            style="animation-delay: 0.2s;">
+            <span data-i18n="hero.title_start">Shiply Iraq</span> <br>
+            <span class="text-gradient" data-i18n="hero.title_end">Express</span>
+          </h1>
+
+          <div class="animate-fade-in-up" style="animation-delay: 0.3s;">
+            <div class="h-[1.5em] text-2xl sm:text-3xl text-gray-400 font-light flex items-center mb-8">
+              <span class="mr-2" data-i18n="hero.scaling">Scaling from</span>
+              <span id="typing-text" class="text-white font-semibold"></span>
+              <span class="animate-blink inline-block w-0.5 h-8 bg-purple-500 ml-1"></span>
+            </div>
+          </div>
+
+          <p class="max-w-xl text-lg text-gray-400 mb-10 leading-relaxed animate-fade-in-up"
+            style="animation-delay: 0.4s;" data-i18n="hero.subtitle">
+            Experience the future of shipping with our AI-powered logistics platform. Reliable, fast, and completely
+            transparent from pickup to delivery.
+          </p>
+
+          <div class="flex flex-wrap gap-4 animate-fade-in-up" style="animation-delay: 0.5s;">
+            <a href="#contact" class="btn-primary flex items-center gap-2 text-lg">
+              <span data-i18n="hero.cta_primary">Start Shipping</span>
+              <i data-lucide="arrow-right" class="w-5 h-5 rtl:rotate-180"></i>
+            </a>
+            <a href="#platform" class="btn-secondary flex items-center gap-2 text-lg" data-i18n="hero.cta_secondary">
+              <i data-lucide="download" class="w-5 h-5"></i>
+              Download App
+            </a>
+          </div>
+
+          <!-- Trust Indicators -->
+          <div class="mt-12 pt-8 border-t border-white/10 w-full animate-fade-in-up" style="animation-delay: 0.6s;">
+            <div class="grid grid-cols-3 gap-8">
+              <div>
+                <div class="text-2xl font-bold text-white">10k+</div>
+                <div class="text-xs text-gray-500 uppercase tracking-wider mt-1" data-i18n="stats.deliveries">Shipments
+                </div>
+              </div>
+              <div>
+                <div class="text-2xl font-bold text-white">99%</div>
+                <div class="text-xs text-gray-500 uppercase tracking-wider mt-1" data-i18n="stats.clients">Success Rate
+                </div>
+              </div>
+              <div>
+                <div class="text-2xl font-bold text-white">24/7</div>
+                <div class="text-xs text-gray-500 uppercase tracking-wider mt-1" data-i18n="stats.support">Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: 3D Composition -->
+        <div class="relative block h-[400px] lg:h-[600px] mt-12 lg:mt-0 w-full animate-fade-in-up perspective-1000"
+          style="animation-delay: 0.4s;">
+          <!-- Scaled Wrapper for Mobile -->
+          <div
+            class="relative w-full h-full flex items-center justify-center transform scale-[0.6] sm:scale-75 md:scale-90 lg:scale-100 origin-center">
+            <!-- Decorative Orbit Rings -->
+            <div
+              class="absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-white/5 rounded-full z-0">
+            </div>
+            <div
+              class="absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] border border-white/10 rounded-full z-0">
+            </div>
+
+            <!-- Main Glass Card -->
+            <div
+              class="absolute top-1/2 start-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 glass rounded-3xl p-6 z-20 animate-float">
+              <div class="flex justify-between items-center mb-6">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-purple-500/30">
+                    <i data-lucide="box" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-sm font-bold text-white">Shipment #8821</div>
+                    <div class="text-xs text-purple-300">In Transit • Dubai</div>
+                  </div>
+                </div>
+                <div
+                  class="px-2 py-1 rounded-full bg-green-500/20 text-green-400 text-[10px] font-bold border border-green-500/20">
+                  LIVE</div>
+              </div>
+
+              <!-- Map Viz Styles -->
+              <div class="h-32 w-full bg-black/20 rounded-xl mb-4 relative overflow-hidden border border-white/5">
+                <div class="absolute inset-0 opacity-30"
+                  style="background-image: radial-gradient(#8b5cf6 1px, transparent 1px); background-size: 10px 10px;">
+                </div>
+                <!-- Route Line -->
+                <svg class="absolute inset-0 w-full h-full rtl:-scale-x-100">
+                  <path d="M 20,80 Q 90,20 180,50 T 300,40" fill="none" stroke="url(#gradient-line)" stroke-width="3"
+                    stroke-linecap="round" stroke-dasharray="5,5" />
+                  <defs>
+                    <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#d946ef;stop-opacity:1" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <!-- Moving Dot -->
+                <div
+                  class="absolute top-[40px] start-[200px] w-3 h-3 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.8)] animate-pulse">
+                </div>
+              </div>
+
+
+              <div class="flex justify-between text-sm">
+                <div class="text-gray-400">Est. Delivery</div>
+                <div class="text-white font-mono">2 Days</div>
+              </div>
+            </div>
+
+            <!-- Floating Stats Card 1 -->
+            <div class="absolute top-[10%] end-[10%] glass p-4 rounded-2xl z-20 animate-float"
+              style="animation-delay: 1.5s;">
+              <div class="flex items-center gap-3">
+                <div class="p-2 bg-blue-500/20 rounded-lg text-blue-400">
+                  <i data-lucide="shield-check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-gray-400">Status</div>
+                  <div class="text-sm font-bold text-white">Insured</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Stats Card 2 -->
+            <div class="absolute bottom-[20%] start-[0%] glass p-4 rounded-2xl z-20 animate-float"
+              style="animation-delay: 2.5s;">
+              <div class="flex items-center gap-3">
+                <div class="p-2 bg-orange-500/20 rounded-lg text-orange-400">
+                  <i data-lucide="globe" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-gray-400">Global</div>
+                  <div class="text-sm font-bold text-white">150+ Cities</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-sm font-bold text-purple-400 uppercase tracking-wider mb-3" data-i18n="services.label">Our
+          Solutions</h2>
+        <h2 class="text-3xl md:text-5xl font-bold mb-6" data-i18n="services.title">Comprehensive Logistics</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg" data-i18n="services.subtitle">
+          Premium shipping solutions tailored to your specific business requirements.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="luxury-card group">
+          <div class="icon-box w-14 h-14 mb-6">
+            <i data-lucide="plane" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white" data-i18n="services.air.title">Air Freight</h3>
+          <p class="text-gray-400 text-sm leading-relaxed" data-i18n="services.air.desc">
+            Rapid global delivery for your most critical time-sensitive shipments.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="luxury-card group">
+          <div class="icon-box w-14 h-14 mb-6">
+            <i data-lucide="ship" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white" data-i18n="services.ocean.title">Ocean Shipping</h3>
+          <p class="text-gray-400 text-sm leading-relaxed" data-i18n="services.ocean.desc">
+            Efficient, large-scale transport solutions across major global trade routes.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="luxury-card group">
+          <div class="icon-box w-14 h-14 mb-6">
+            <i data-lucide="truck" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white" data-i18n="services.land.title">Land Transport</h3>
+          <p class="text-gray-400 text-sm leading-relaxed" data-i18n="services.land.desc">
+            Secure and reliable ground fleet network for door-to-door interconnectivity.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="luxury-card group">
+          <div class="icon-box w-14 h-14 mb-6">
+            <i data-lucide="package" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white" data-i18n="services.storage.title">Smart Warehousing</h3>
+          <p class="text-gray-400 text-sm leading-relaxed" data-i18n="services.storage.desc">
+            Climate-controlled storage with real-time digital inventory management.
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="luxury-card group">
+          <div class="icon-box w-14 h-14 mb-6">
+            <i data-lucide="shopping-bag" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white" data-i18n="services.ecom.title">E-Commerce</h3>
+          <p class="text-gray-400 text-sm leading-relaxed" data-i18n="services.ecom.desc">
+            End-to-end fulfillment solutions designed to scale your online business.
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="luxury-card group">
+          <div class="icon-box w-14 h-14 mb-6">
+            <i data-lucide="file-check" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white" data-i18n="services.customs.title">Customs Brokerage</h3>
+          <p class="text-gray-400 text-sm leading-relaxed" data-i18n="services.customs.desc">
+            Expert handling of documentation and clearance for hassle-free entry.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform Section -->
+  <section id="platform" class="py-24 relative overflow-hidden bg-white/5">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent">
+    </div>
+    <div class="absolute inset-0 bg-[url('/images/grid-pattern.png')] opacity-[0.02]"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <!-- LEFT: Text -->
+        <div class="text-start">
+          <h2 class="text-sm font-bold text-purple-400 uppercase tracking-wider mb-3" data-i18n="platform.label">THE APP
+          </h2>
+          <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white" data-i18n="platform.title">Power in Your Pocket
+          </h2>
+          <p class="text-gray-400 text-lg mb-8 leading-relaxed" data-i18n="platform.desc">
+            Manage your entire supply chain from your mobile device. Get push notifications, track shipments in
+            real-time, and handle documentation instantly.
+          </p>
+
+          <ul class="space-y-6">
+            <li class="flex items-start gap-4">
+              <div
+                class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mt-1">
+                <i data-lucide="check" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-lg" data-i18n="platform.feat1.title">Real-Time Tracking</h4>
+                <p class="text-gray-500 text-sm" data-i18n="platform.feat1.desc">Live GPS updates for total visibility.
+                </p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div
+                class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mt-1">
+                <i data-lucide="check" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-lg" data-i18n="platform.feat2.title">Instant Notifications</h4>
+                <p class="text-gray-500 text-sm" data-i18n="platform.feat2.desc">Never miss a status update or delivery.
+                </p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div
+                class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mt-1">
+                <i data-lucide="check" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-lg" data-i18n="platform.feat3.title">Digital Archive</h4>
+                <p class="text-gray-500 text-sm" data-i18n="platform.feat3.desc">Access all your shipping documents
+                  securely.</p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="mt-10 flex gap-4">
+            <a href="https://apps.apple.com/iq/app/shiply-express/id6756037985" target="_blank"
+              class="hover:opacity-80 transition-opacity">
+              <img src="/images/download-button-ios.png" alt="App Store"
+                class="h-12 w-auto border border-white/10 rounded-lg">
+            </a>
+            <a href="#" class="hover:opacity-80 transition-opacity">
+              <img src="/images/download-button-android.png" alt="Google Play"
+                class="h-12 w-auto border border-white/10 rounded-lg">
+            </a>
+          </div>
+        </div>
+
+        <!-- RIGHT: Phone Mockup -->
+        <div class="relative flex justify-center perspective-1000">
+          <!-- Phone Frame -->
+          <div
+            class="relative w-[300px] h-[600px] bg-[#1a1a1a] rounded-[40px] border-[8px] border-[#2a2a2a] shadow-2xl overflow-hidden transform rotate-y-[-10deg] hover:rotate-y-0 transition-transform duration-500">
+            <!-- Notch -->
+            <div class="absolute top-0 start-1/2 -translate-x-1/2 w-40 h-7 bg-[#2a2a2a] rounded-b-xl z-20"></div>
+
+            <!-- Screen Content -->
+            <div class="w-full h-full bg-white relative">
+              <div id="carousel-track" class="flex h-full transition-transform duration-500 ease-in-out">
+                <img src="/images/platform/app1.png" class="flex-shrink-0 w-full h-full object-cover">
+                <img src="/images/platform/app2.png" class="flex-shrink-0 w-full h-full object-cover">
+                <img src="/images/platform/app3.png" class="flex-shrink-0 w-full h-full object-cover">
+                <img src="/images/platform/app4.png" class="flex-shrink-0 w-full h-full object-cover">
+              </div>
+            </div>
+
+            <!-- Touch Overlay for Swiping -->
+            <div class="absolute inset-0 z-30 cursor-grab" id="phone-overlay"></div>
+          </div>
+
+          <!-- Behind Glow -->
+          <div
+            class="absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[600px] bg-purple-600/20 blur-[80px] -z-10">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div
+        class="inline-block p-1 rounded-full bg-gradient-to-r from-purple-500/20 to-indigo-500/20 backdrop-blur-sm mb-8">
+        <div class="px-6 py-2 rounded-full border border-white/10 bg-black/40">
+          <span class="text-sm font-semibold text-purple-300 tracking-wider">EST. 2024</span>
+        </div>
+      </div>
+
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight" data-i18n="about.title">Redefining
+        Logistics through Innovation</h2>
+      <p class="text-xl text-gray-400 leading-relaxed font-light" data-i18n="about.p1">
+        SHIPLY is not just a shipping company; we are an orbit of connectivity. We merge high-end technology with human
+        expertise to ensure your cargo moves through the world with the elegance and speed it deserves.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 relative bg-black/40">
+    <div class="absolute inset-0 bg-[url('/images/world-map-dots.png')] bg-no-repeat bg-center opacity-10 bg-contain">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <!-- Info -->
+        <div class="text-start">
+          <h2 class="text-sm font-bold text-purple-400 uppercase tracking-wider mb-3" data-i18n="contact.label">CONTACT
+            US</h2>
+          <h2 class="text-4xl md:text-6xl font-bold mb-8 text-white" data-i18n="contact.title">Let's Talk.</h2>
+          <p class="text-gray-400 text-lg mb-12" data-i18n="contact.subtitle">If you want to get code and address to
+            login our app fill this form</p>
+
+          <div class="space-y-8">
+            <div class="flex items-center gap-6">
+              <div
+                class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-purple-400">
+                <i data-lucide="phone" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500 uppercase tracking-widest mb-1" data-i18n="contact.phone">PHONE</div>
+                <a href="tel:+9647509490950"
+                  class="text-xl font-bold text-white hover:text-purple-400 transition-colors" dir="ltr">+964 750 949
+                  0950</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-6">
+              <div
+                class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-purple-400">
+                <i data-lucide="mail" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500 uppercase tracking-widest mb-1" data-i18n="contact.email">EMAIL</div>
+                <a href="mailto:shiplyiraq.express@gmail.com"
+                  class="text-xl font-bold text-white hover:text-purple-400 transition-colors">shiplyiraq.express@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-6">
+              <div
+                class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-purple-400">
+                <i data-lucide="map-pin" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500 uppercase tracking-widest mb-1" data-i18n="contact.address">LOCATION
+                </div>
+                <a href="https://maps.google.com/?q=E1+Tower,+60m+Street,+Erbil,+Iraq" target="_blank"
+                  class="text-xl font-bold text-white hover:text-purple-400 transition-colors">
+                  E1 Tower, Erbil, Iraq
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="luxury-card bg-[#0a0a0a]/80 backdrop-blur-xl">
+          <form class="space-y-6" id="whatsapp-form">
+            <div>
+              <label class="block text-sm font-medium text-gray-400 mb-2 text-start" data-i18n="form.name">Your
+                Full Name</label>
+              <input type="text" id="form-name"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder-gray-600"
+                placeholder="" required>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-400 mb-2 text-start" data-i18n="form.phone">Your Phone
+                Number</label>
+              <input type="tel" id="form-phone"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder-gray-600"
+                placeholder="" required>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-400 mb-2 text-start"
+                data-i18n="form.country">Country</label>
+              <select id="form-country"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder-gray-600 appearance-none">
+                <option value="Emirates" class="bg-gray-900 text-white" data-i18n="form.favorites.emirates">Emirates
+                </option>
+                <option value="China" class="bg-gray-900 text-white" data-i18n="form.favorites.china">China</option>
+                <option value="USA" class="bg-gray-900 text-white" data-i18n="form.favorites.usa">USA</option>
+                <option value="Turkey" class="bg-gray-900 text-white" data-i18n="form.favorites.turkey">Turkey</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-400 mb-2 text-start" data-i18n="form.address">Your
+                Address</label>
+              <input type="text" id="form-address"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder-gray-600"
+                placeholder="" required>
+            </div>
+            <button type="submit"
+              class="w-full btn-primary py-4 text-center text-lg font-bold shadow-lg shadow-purple-900/40"
+              data-i18n="form.submit">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-black pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+        <div class="mb-8 md:mb-0 text-center md:text-start">
+          <img src="/images/logo-purple.png" class="h-8 w-auto mb-4 mx-auto md:mx-0" alt="SHIPLY">
+          <p class="text-gray-500 text-sm max-w-xs" data-i18n="footer.tagline">Global logistics partner for the modern
+            world.</p>
+        </div>
+
+        <div class="flex gap-8">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav.home">Home</a>
+          <a href="#services" class="text-gray-400 hover:text-white transition-colors"
+            data-i18n="nav.services">Services</a>
+          <a href="#about" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav.about">About</a>
+          <a href="#contact" class="text-gray-400 hover:text-white transition-colors"
+            data-i18n="nav.contact">Contact</a>
+        </div>
+
+        <div class="flex gap-4 mt-8 md:mt-0">
+          <a href="https://www.instagram.com/shiply.iraq/" target="_blank"
+            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-purple-600 transition-all">
+            <i data-lucide="instagram" class="w-5 h-5"></i>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
+        <p data-i18n="footer.rights">© 2025 SHIPLY Express. All right reserved.</p>
+
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
