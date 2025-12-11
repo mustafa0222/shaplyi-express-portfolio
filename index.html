@@ -113,23 +113,22 @@
     <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-        <!-- LEFT: Content -->
-        <div class="flex flex-col items-start text-left pt-10 lg:pt-0">
-          <!-- Badge -->
-          <div class="animate-fade-in-up mb-8" style="animation-delay: 0.1s;">
-            <!-- New Style: Glass Tag with Dot -->
-            <div
-              class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/80 backdrop-blur-md border border-purple-100 shadow-sm hover:shadow-md transition-all cursor-default">
-              <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-              </span>
-              <span
-                class="text-[11px] font-bold tracking-widest uppercase text-gray-600 border-l border-gray-300 pl-2 ml-1"
-                data-i18n="hero.badge">Your Express Bridge To The World</span>
-            </div>
-          </div>
-        </div>
+        <div class="animate-fade-in-up mb-8" style="animation-delay: 0.1s;">
+  <div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white/95 backdrop-blur-md border border-gray-100 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-default group">
+    <!-- Animated loading dot -->
+    <div class="relative flex h-2 w-2">
+      <div class="absolute h-full w-full rounded-full bg-accent/20 animate-ping"></div>
+      <div class="relative h-2 w-2 rounded-full bg-accent group-hover:bg-gradient-to-r group-hover:from-accent group-hover:to-accent/70 transition-all duration-300"></div>
+    </div>
+    
+    <!-- Text with subtle hover effect -->
+    <span class="text-[11px] font-medium tracking-widest uppercase text-gray-700/90 group-hover:text-gray-900 transition-colors duration-300 pl-2 ml-1 border-l border-gray-200"
+          data-i18n="hero.badge">Your Express Bridge To The World</span>
+    
+    <!-- Subtle underline effect -->
+    <div class="absolute -bottom-1 left-4 right-4 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+  </div>
+</div>
 
         <!-- Title -->
         <h1
@@ -657,3 +656,4 @@
 
 
 </html>
+
