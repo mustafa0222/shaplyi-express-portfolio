@@ -72,8 +72,27 @@
           </a>
         </div>
 
-        <!-- Mobile Menu Button -->
-        <div class="md:hidden flex items-center gap-4">
+        <!-- Mobile Controls -->
+        <div class="md:hidden flex items-center gap-1">
+          <!-- Mobile Language Button -->
+          <div class="relative">
+            <button id="mobile-lang-btn"
+              class="text-white hover:text-purple-400 focus:outline-none p-2 flex items-center gap-1">
+              <i data-lucide="globe" class="w-5 h-5"></i>
+              <span id="mobile-lang-text" class="text-xs font-bold">EN</span>
+            </button>
+            <!-- Dropdown -->
+            <div id="mobile-lang-dropdown"
+              class="absolute top-full end-0 mt-2 w-32 bg-[#0a051e] border border-white/10 rounded-xl shadow-2xl hidden flex-col overflow-hidden z-50">
+              <button onclick="setLanguage('en')"
+                class="px-4 py-3 text-start text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-all w-full">English</button>
+              <button onclick="setLanguage('ar')"
+                class="px-4 py-3 text-start text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-all w-full font-arabic">العربية</button>
+              <button onclick="setLanguage('ku')"
+                class="px-4 py-3 text-start text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-all w-full font-arabic">کوردی</button>
+            </div>
+          </div>
+
           <button id="mobile-menu-btn" class="text-white hover:text-purple-400 focus:outline-none p-2">
             <i data-lucide="menu" class="w-8 h-8"></i>
           </button>
