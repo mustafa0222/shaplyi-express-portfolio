@@ -328,6 +328,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Mobile Language Dropdown ---
+  const mobileLangBtn = document.getElementById('mobile-lang-btn');
+  const mobileLangDropdown = document.getElementById('mobile-lang-dropdown');
+  const mobileLangText = document.getElementById('mobile-lang-text');
+
+  if (mobileLangBtn && mobileLangDropdown) {
+    mobileLangBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileLangDropdown.classList.toggle('hidden');
+      mobileLangDropdown.classList.toggle('flex');
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileLangBtn.contains(e.target) && !mobileLangDropdown.contains(e.target)) {
+        mobileLangDropdown.classList.add('hidden');
+        mobileLangDropdown.classList.remove('flex');
+      }
+    });
+  }
+
   window.setLanguage = function (lang) {
     if (!translations[lang]) return;
 
@@ -358,6 +379,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (currentLangSpan) currentLangSpan.textContent = lang.toUpperCase();
+    if (mobileLangText) mobileLangText.textContent = lang.toUpperCase();
+
+    // Hide mobile dropdown after selection
+    if (mobileLangDropdown) {
+      mobileLangDropdown.classList.add('hidden');
+      mobileLangDropdown.classList.remove('flex');
+    }
+
     console.log(`Language set to ${lang}`);
   };
 
