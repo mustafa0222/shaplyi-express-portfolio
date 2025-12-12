@@ -80,70 +80,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu-overlay"
-      class="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm hidden transition-opacity opacity-0"></div>
-
-    <!-- Mobile Menu Sidebar -->
-    <div id="mobile-menu"
-      class="fixed top-0 end-0 w-[80%] max-w-sm h-full bg-[#0a051e] border-s border-white/10 shadow-2xl z-50 transform translate-x-full rtl:-translate-x-full transition-transform duration-300 flex flex-col">
-
-      <div class="flex justify-between items-center p-6 border-b border-white/10">
-        <span class="text-xl font-bold font-outfit text-white" data-i18n="nav.menu">Menu</span>
-        <button id="mobile-menu-close" class="text-gray-400 hover:text-white">
-          <i data-lucide="x" class="w-6 h-6"></i>
-        </button>
-      </div>
-
-      <div class="flex-1 overflow-y-auto py-8 px-6 space-y-2">
-        <a href="#home"
-          class="block px-4 py-3 rounded-xl text-lg text-gray-300 hover:bg-white/5 hover:text-white transition-all flex items-center gap-3"
-          data-i18n="nav.home">
-          <i data-lucide="home" class="w-5 h-5 text-purple-500"></i> HOME
-        </a>
-        <a href="#platform"
-          class="block px-4 py-3 rounded-xl text-lg text-gray-300 hover:bg-white/5 hover:text-white transition-all flex items-center gap-3"
-          data-i18n="nav.platform">
-          <i data-lucide="smartphone" class="w-5 h-5 text-purple-500"></i> PLATFORM
-        </a>
-        <a href="#services"
-          class="block px-4 py-3 rounded-xl text-lg text-gray-300 hover:bg-white/5 hover:text-white transition-all flex items-center gap-3"
-          data-i18n="nav.services">
-          <i data-lucide="layers" class="w-5 h-5 text-purple-500"></i> SERVICES
-        </a>
-        <a href="#about"
-          class="block px-4 py-3 rounded-xl text-lg text-gray-300 hover:bg-white/5 hover:text-white transition-all flex items-center gap-3"
-          data-i18n="nav.about">
-          <i data-lucide="info" class="w-5 h-5 text-purple-500"></i> ABOUT
-        </a>
-        <a href="#contact"
-          class="block px-4 py-3 rounded-xl text-lg text-gray-300 hover:bg-white/5 hover:text-white transition-all flex items-center gap-3"
-          data-i18n="nav.contact">
-          <i data-lucide="mail" class="w-5 h-5 text-purple-500"></i> CONTACT
-        </a>
-
-        <div class="h-px bg-white/10 my-4"></div>
-
-        <div class="space-y-4">
-          <p class="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Languages</p>
-          <div class="grid grid-cols-3 gap-2 px-4">
-            <button onclick="setLanguage('en')"
-              class="py-2 rounded-lg bg-white/5 hover:bg-purple-600/20 text-sm text-gray-300 hover:text-white border border-white/5 transition-all">English</button>
-            <button onclick="setLanguage('ar')"
-              class="py-2 rounded-lg bg-white/5 hover:bg-purple-600/20 text-sm text-gray-300 hover:text-white border border-white/5 transition-all font-arabic">العربية</button>
-            <button onclick="setLanguage('ku')"
-              class="py-2 rounded-lg bg-white/5 hover:bg-purple-600/20 text-sm text-gray-300 hover:text-white border border-white/5 transition-all font-arabic">کوردی</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="p-6 border-t border-white/10 bg-black/20">
-        <a href="#contact" class="w-full btn-primary flex justify-center items-center gap-2" data-i18n="nav.cta">
-          Get Started
-        </a>
-      </div>
-    </div>
   </nav>
 
   <!-- Hero Section -->
@@ -487,7 +423,7 @@
 
             <!-- Screen Content -->
             <div class="w-full h-full bg-white relative">
-              <div id="carousel-track" class="flex h-full transition-transform duration-500 ease-in-out">
+              <div id="carousel-track" dir="ltr" class="flex h-full transition-transform duration-500 ease-in-out">
                 <img src="/images/platform/app1.png" class="flex-shrink-0 w-full h-full object-cover">
                 <img src="/images/platform/app2.png" class="flex-shrink-0 w-full h-full object-cover">
                 <img src="/images/platform/app3.png" class="flex-shrink-0 w-full h-full object-cover">
@@ -603,9 +539,8 @@
                 placeholder="" required>
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-400 mb-2 text-start"
-                data-i18n="form.country">Select
-                 Country to Get Address</label>
+              <label class="block text-sm font-medium text-gray-400 mb-2 text-start" data-i18n="form.country">Select
+                Country to Get Address</label>
               <select id="form-country"
                 class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder-gray-600 appearance-none">
                 <option value="Emirates" class="bg-gray-900 text-white" data-i18n="form.favorites.emirates">Emirates
@@ -669,7 +604,70 @@
   </footer>
 
   <script type="module" src="/src/main.js"></script>
-</body>
 
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay"
+    class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm hidden transition-opacity opacity-0"></div>
+
+  <!-- Mobile Menu Sidebar -->
+  <div id="mobile-menu" style="background-color: #0a051e;"
+    class="fixed top-0 end-0 w-[80%] max-w-sm h-full border-s border-white/10 shadow-2xl z-[101] transform translate-x-full rtl:-translate-x-full transition-transform duration-300 flex flex-col">
+
+    <div class="flex justify-between items-center p-6 border-b border-white/10">
+      <span class="text-xl font-bold font-outfit text-white" data-i18n="nav.menu">Menu</span>
+      <button id="mobile-menu-close" class="text-gray-400 hover:text-white">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto py-8 px-6 space-y-2">
+      <a href="#home"
+        class="block px-4 py-3 rounded-xl text-lg text-gray-300 hover:bg-white/5 hover:text-white transition-all flex items-center gap-3"
+        data-i18n="nav.home">
+        <i data-lucide="home" class="w-5 h-5 text-purple-500"></i> HOME
+      </a>
+      <a href="#platform"
+        class="block px-4 py-3 rounded-xl text-lg text-gray-300 hover:bg-white/5 hover:text-white transition-all flex items-center gap-3"
+        data-i18n="nav.platform">
+        <i data-lucide="smartphone" class="w-5 h-5 text-purple-500"></i> PLATFORM
+      </a>
+      <a href="#services"
+        class="block px-4 py-3 rounded-xl text-lg text-gray-300 hover:bg-white/5 hover:text-white transition-all flex items-center gap-3"
+        data-i18n="nav.services">
+        <i data-lucide="layers" class="w-5 h-5 text-purple-500"></i> SERVICES
+      </a>
+      <a href="#about"
+        class="block px-4 py-3 rounded-xl text-lg text-gray-300 hover:bg-white/5 hover:text-white transition-all flex items-center gap-3"
+        data-i18n="nav.about">
+        <i data-lucide="info" class="w-5 h-5 text-purple-500"></i> ABOUT
+      </a>
+      <a href="#contact"
+        class="block px-4 py-3 rounded-xl text-lg text-gray-300 hover:bg-white/5 hover:text-white transition-all flex items-center gap-3"
+        data-i18n="nav.contact">
+        <i data-lucide="mail" class="w-5 h-5 text-purple-500"></i> CONTACT
+      </a>
+
+      <div class="h-px bg-white/10 my-4"></div>
+
+      <div class="space-y-4">
+        <p class="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Languages</p>
+        <div class="grid grid-cols-3 gap-2 px-4">
+          <button onclick="setLanguage('en')"
+            class="py-2 rounded-lg bg-white/5 hover:bg-purple-600/20 text-sm text-gray-300 hover:text-white border border-white/5 transition-all">English</button>
+          <button onclick="setLanguage('ar')"
+            class="py-2 rounded-lg bg-white/5 hover:bg-purple-600/20 text-sm text-gray-300 hover:text-white border border-white/5 transition-all font-arabic">العربية</button>
+          <button onclick="setLanguage('ku')"
+            class="py-2 rounded-lg bg-white/5 hover:bg-purple-600/20 text-sm text-gray-300 hover:text-white border border-white/5 transition-all font-arabic">کوردی</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-6 border-t border-white/10 bg-black/20">
+      <a href="#contact" class="w-full btn-primary flex justify-center items-center gap-2" data-i18n="nav.cta">
+        Get Started
+      </a>
+    </div>
+  </div>
+</body>
 
 </html>
