@@ -8,10 +8,10 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: "#000000", // Dark/Black background
-                accent: "#5E269B", // Deep vibrant Purple
-                "accent-hover": "#4a1e7a",
-                text: "#FFFFFF",
+                primary: "#ffffff", // Light/White background
+                accent: "#7c3aed", // Bright Purple
+                "accent-hover": "#6d28d9",
+                text: "#1e293b", // Slate 900
             },
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],
