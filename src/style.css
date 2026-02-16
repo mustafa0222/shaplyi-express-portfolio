@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  /* Dark Luxury Theme Palette */
+  /* Light Luxury Theme Palette */
   --bg-main: #ffffff;
-  --bg-secondary: #cacaca;
-  --color-accent: #8b5cf6;
-  --color-accent-glow: #7c3aed;
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #94a3b8;
+  --bg-secondary: #f8fafc;
+  --color-accent: #7c3aed;
+  --color-accent-glow: #8b5cf6;
+  --color-text-primary: #1e293b;
+  --color-text-secondary: #64748b;
 
   /* Gradients */
-  --gradient-main: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
-  --gradient-dark: linear-gradient(to bottom, #030014, #0f0728);
-  --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-  --gradient-border: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  --gradient-main: linear-gradient(135deg, #7c3aed 0%, #d946ef 100%);
+  --gradient-dark: linear-gradient(to bottom, #ffffff, #f1f5f9);
+  --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.5) 100%);
+  --gradient-border: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
 
   --font-sans: "Inter", sans-serif;
   --font-outfit: "Outfit", sans-serif;
@@ -26,8 +26,8 @@ html {
 body {
   background-color: var(--bg-main);
   background-image:
-    radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.15), transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(217, 70, 239, 0.15), transparent 25%);
+    radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.08), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(217, 70, 239, 0.08), transparent 25%);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
   overflow-x: hidden;
@@ -79,17 +79,18 @@ p {
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
 }
 
 .glass-nav {
-  background: rgba(3, 0, 20, 0.7);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 /* Animations */
@@ -166,8 +167,8 @@ p {
 
 /* Component: Luxury Card */
 .luxury-card {
-  background: var(--gradient-card);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 1.5rem;
   padding: 2rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -237,8 +238,8 @@ p {
 
 .btn-secondary {
   background: transparent;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-text-primary);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 0.75rem 2rem;
   border-radius: 9999px;
   font-weight: 600;
@@ -246,8 +247,8 @@ p {
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: white;
+  background: rgba(0, 0, 0, 0.05);
+  border-color: var(--color-text-primary);
   transform: translateY(-2px);
 }
 
