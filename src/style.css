@@ -37,8 +37,20 @@ body {
 #home {
   background-image: url('/images/bg-trucks.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center bottom;
   background-attachment: fixed;
+}
+
+/* Fix iOS and Mobile Background Scrolling Issues */
+@media (max-width: 768px) {
+
+  body,
+  #home {
+    background-attachment: scroll;
+    /* Fixed attachment often fails or causes severe performance issues on mobile Safari/Chrome */
+    background-position: center center;
+    background-size: cover;
+  }
 }
 
 /* Custom Scrollbar */
