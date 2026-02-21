@@ -24,14 +24,21 @@ html {
 }
 
 body {
-  background-color: transparent;
-  background-image: url('/images/grid-pattern.png');
+  background-color: #f8fafc;
+  background-image: url('/images/bg-ship.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   color: var(--color-text-primary);
   font-family: var(--font-sans);
   overflow-x: hidden;
+}
+
+#home {
+  background-image: url('/images/bg-trucks.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 /* Custom Scrollbar */
