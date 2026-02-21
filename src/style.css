@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  /* Light Luxury Theme Palette */
-  --bg-main: #ffffff;
-  --bg-secondary: #f8fafc;
-  --color-accent: #7c3aed;
-  --color-accent-glow: #8b5cf6;
-  --color-text-primary: #1e293b;
-  --color-text-secondary: #64748b;
+  /* iOS 26 Liquid Glass Harmony Theme Palette */
+  --bg-main: transparent;
+  --bg-secondary: transparent;
+  --color-accent: rgba(255, 255, 255, 0.8);
+  --color-accent-glow: rgba(255, 255, 255, 0.5);
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.8);
 
   /* Gradients */
-  --gradient-main: linear-gradient(135deg, #7c3aed 0%, #d946ef 100%);
-  --gradient-dark: linear-gradient(to bottom, #ffffff, #f1f5f9);
-  --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.5) 100%);
-  --gradient-border: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
+  --gradient-main: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
+  --gradient-dark: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
+  --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+  --gradient-border: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.05) 100%);
 
   --font-sans: "Inter", sans-serif;
   --font-outfit: "Outfit", sans-serif;
@@ -24,10 +24,11 @@ html {
 }
 
 body {
-  background-color: var(--bg-main);
-  background-image:
-    radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.08), transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(217, 70, 239, 0.08), transparent 25%);
+  background-color: #0f0f13;
+  background-image: url('/images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: var(--color-text-primary);
   font-family: var(--font-sans);
   overflow-x: hidden;
@@ -37,41 +38,46 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: var(--bg-main);
+  background: rgba(0,0,0,0.2);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: var(--color-accent);
+  background: rgba(255,255,255,0.3);
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #a78bfa;
+  background: rgba(255,255,255,0.5);
 }
 
-/* Typography Overrides */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* Typography Overrides for Glassy Theme */
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-outfit);
-  color: var(--color-text-primary);
+  color: #fff !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-p {
-  color: var(--color-text-secondary);
+p, span, div, a, label {
+  color: rgba(255,255,255,0.9);
+}
+
+.text-gray-900, .text-gray-700, .text-gray-600, .text-gray-500 {
+  color: #fff !important;
+}
+
+.bg-white, .bg-white\/40, .bg-white\/80, .bg-black\/5, .bg-gray-900 {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
 /* Utilities */
 .text-gradient {
-  background: var(--gradient-main);
+  background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.6) 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  color: transparent !important;
+  text-shadow: none;
 }
 
 .bg-gradient-primary {
@@ -79,113 +85,51 @@ p {
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(30px) saturate(200%);
+  -webkit-backdrop-filter: blur(30px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .glass-nav {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(30px) saturate(200%);
+  -webkit-backdrop-filter: blur(30px) saturate(200%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Inputs & Forms */
+input, select, textarea {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+input::placeholder, textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-}
-
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes glow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
-  }
-
-  50% {
-    box-shadow: 0 0 40px rgba(139, 92, 246, 0.4);
-  }
-}
-
-.animate-glow {
-  animation: glow 3s infinite;
-}
-
-/* Mobile Menu Animations */
-.mobile-menu-enter {
-  transform: translateX(100%);
-  opacity: 0;
-}
-
-.mobile-menu-enter-active {
-  transform: translateX(0);
-  opacity: 1;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.mobile-menu-exit {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-.mobile-menu-exit-active {
-  transform: translateX(100%);
-  opacity: 0;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Component: Luxury Card */
+/* Component: Luxury Card as Liquid Glass */
 .luxury-card {
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 2rem;
   padding: 2rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   z-index: 1;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Hover Glow Effect */
 .luxury-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(139, 92, 246, 0.1), transparent 40%);
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.15), transparent 40%);
   z-index: -1;
   opacity: 0;
   transition: opacity 0.4s;
@@ -197,30 +141,34 @@ p {
 
 .luxury-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(139, 92, 246, 0.3);
-  box-shadow: 0 20px 40px -20px rgba(139, 92, 246, 0.2);
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.3);
 }
 
 .icon-box {
-  background: rgba(139, 92, 246, 0.1);
-  color: #a78bfa;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .luxury-card:hover .icon-box {
-  background: var(--gradient-main);
-  color: white;
+  background: rgba(255, 255, 255, 0.2);
   transform: scale(1.1) rotate(5deg);
 }
 
 /* Button Styles */
 .btn-primary {
-  background: var(--gradient-main);
-  color: white;
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: white !important;
   font-weight: 600;
   padding: 0.75rem 2rem;
   border-radius: 9999px;
@@ -228,37 +176,67 @@ p {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  box-shadow: 0 10px 20px -10px rgba(139, 92, 246, 0.5);
+  box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
   transform: translateY(-2px);
-  box-shadow: 0 20px 30px -10px rgba(139, 92, 246, 0.6);
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3);
 }
 
 .btn-secondary {
-  background: transparent;
-  color: var(--color-text-primary);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: transparent !important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
   padding: 0.75rem 2rem;
   border-radius: 9999px;
   font-weight: 600;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-  background: rgba(0, 0, 0, 0.05);
-  border-color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
   transform: translateY(-2px);
 }
 
-/* Specific Section Adjustments */
+/* Dynamic Navbar Background via JS */
 #navbar {
-  /* Controlled by JS now for scroll effect, but defaults here */
-  transition: background 0.3s, backdrop-filter 0.3s;
+  transition: background 0.3s, backdrop-filter 0.3s, border 0.3s;
 }
 
-/* Lucide Icons stroke default */
-.lucide {
-  stroke-width: 1.5;
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.2); }
+}
+.animate-glow {
+  animation: glow 3s infinite;
+}
+
+/* Mobile Menu Transitions */
+.mobile-menu-enter { transform: translateX(100%); opacity: 0; }
+.mobile-menu-enter-active { transform: translateX(0); opacity: 1; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+.mobile-menu-exit { transform: translateX(0); opacity: 1; }
+.mobile-menu-exit-active { transform: translateX(100%); opacity: 0; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* Lucide Icons stroke default */
+.lucide { stroke-width: 1.5; color: inherit; }
